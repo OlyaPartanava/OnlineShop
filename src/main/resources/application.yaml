@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/shop_clothes
+    username: root
+    password: Opartanava25+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8082
