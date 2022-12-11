@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Bags</title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="second.css">
+
+
+</head>
+<body class="m_s_layout_fixed">
+
+<div id="m_wrapper">
+    <div id="m_header" class="m_container_12">
+        <div class="m_grid_12">
+            <a id="m_site_logo" th:href="@{/}">Fasion</a>
+
+            <div id="m_system_navigation" class="m_m_s_nav">
+                <ul class="m_s_list_1 m_clearfix ">
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/login}">Log In</a></li>
+                    <li><a th:href="@{/basket}">Shopping Cart</a></li>
+                </ul>
+            </div>
+
+
+            <div id="m_categories" class="m_m_s_nav">
+                <p><span><a
+                        th:href="@{/}">HOME</a></span><span>-</span><span>Accessories</span><span>-</span><span>Bags</span>
+                </p>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div id="m_content" class="m_container_12">
+
+
+        <div id="category" class="m_grid_9">
+
+
+            <div class="m_clear"></div>
+
+            <div class="m_s_listing m_s_list_view m_clearfix">
+                <div style="margin-bottom: 10px" class="m_s_item m_clearfix" th:each="bags:${product}">
+
+                    <form th:action="@{/add-to-cart}" method="post">
+                        <div class="m_grid_3 m_alpha"><a class="m_s_thumb" ><img
+                                src="image/bag.jpg"/></a></div>
+                        <!--            <img th:src="@{'data:image/jpeg;base64,' + ${product.image}}" class="img-fluid" alt="Image">-->
+
+                        <div class="m_grid_6 m_omega">
+                            <h3 th:text="${bags.getName()}"></h3>
+                            <p><span>Цена:</span><span class="s_old_price" th:text="${bags.getPrice()}"></span>
+                                <span>USD</span></p>
+                            <span>Описание:</span>
+                            <p class="m_s_description" th:text="${bags.getDescription()}"></p>
+                            <form action="/addToCart" method="POST">
+                                <input type="hidden" name="id" th:value="${bags.id}"/>
+                                <input type="number" min="1" value="1" name="quantity" placeholder="quantity"/>
+                                <form  method="get" th:action="@{/basket}">
+                                <button type="submit" >В корзину</button>
+                                </form>
+                            </form>
+                        </div>
+
+
+                    </form>
+                </div>
+
+                <div class="m_clear"></div>
+
+
+                <div class="clear"></div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div id="shop_info">
+
+    </div>
+
+
+</div>
+</body>
+</html>

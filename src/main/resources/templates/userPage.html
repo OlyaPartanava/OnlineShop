@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Shop</title>
+
+    <meta name="description" content="My Store"/>
+
+    <link rel="stylesheet" href="main1.css">
+    <link rel="stylesheet" href="main2.css">
+    <link rel="stylesheet" href="main3.css">
+
+
+</head>
+<body class="m_style">
+
+<div id="m_wrapper">
+    <div id="header" class="m1_container">
+        <div class="grid_12">
+            <a id="site_logo" th:href="@{/}">Fashion</a>
+
+            <div id="system_navigation" class="s_nav">
+                <ul class="s_list_1 ">
+                    <li></li>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/login}">Enter</a></li>
+                    <li><a th:href="@{/profile}">Profile</a></li>
+                    <li><a th:href="@{/showBasket}">Shopping Cart</a></li>
+                    <p>USER PAGE</p>
+                </ul>
+            </div>
+
+
+            <div id="categories" class="s_nav">
+                <ul>
+
+                    <li><a href="">Women</a>
+                        <div class="s_submenu">
+
+                            <ul class="s_list_1 clearfix">
+                                <li><a th:href="@{/dresses}">Dresses</a></li>
+                                <li><a th:href="@{/skirts}">Skirts</a></li>
+
+                            </ul>
+                            <span class="clear border_eee"></span>
+
+                        </div>
+                    </li>
+                    <li><a>Men</a>
+                        <div class="s_submenu">
+
+                            <ul class="s_list_1 clearfix">
+                                <li><a>Costumes</a></li>
+                                <li><a>Shirts</a></li>
+                            </ul>
+
+
+                        </div>
+                    </li>
+                    <li><a>Kids</a>
+                        <div class="s_submenu">
+                            <ul class="s_list_1 clearfix">
+                                <li><a>Costumes</a></li>
+                                <li><a>Jackets</a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+                    <li><a>Accessories</a>
+                        <div class="s_submenu">
+                            <ul class="s_list_1 clearfix">
+                                <li><a>Glasses</a></li>
+                                <li><a>Bags</a></li>
+                            </ul>
+                        </div>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- end of header -->
+
+
+    <!-- ********************** -->
+    <!--      C O N T E N T     -->
+    <!-- ********************** -->
+    <div id="content" class="m1_">
+
+        <!--      Текст добро пожаловать в магазин     -->
+        <div id="welcome" class="grid_12">
+            <h2><span class="s_main_color">Welcome for the perfect style</span></h2>
+            <p> Теперь купить одежду модных брендов через интернет стало проще! В Beauty fashion вы найдете десятки
+                стильных предметов гардероба для женщин и мужчин.
+                В нашем каталоге - множество моделей последних коллекций BULMER, LABBRA.
+                Куртки, пальто, платья, брюки, юбки - вы обязательно подберете подходящий вариант для любого сезона. Наш
+                интернет-магазин модной одежды поддерживает высокие корпоративные стандарты: вы получите консультацию,
+                сможете воспользоваться помощью специалистов, примерить одежду при заказе в Минске, также мы высылаем
+                заказы в регионы через РУП Белпочта, Европочта.</p>
+
+        </div>
+
+
+        <div class="clear"></div>
+
+
+        <div id="banners_1">
+            <div class="grid_3">
+                <a target="_blank">
+                    <img src="image/44.jpg">
+                </a>
+                <button style="margin-top: 10px; margin-left:50px"> Женщинам</button>
+            </div>
+            <div class="grid_3">
+                <a target="_blank">
+                    <img src="image/33.jpg">
+                    <button style="margin-top: 10px; margin-left:50px"> Мужчинам</button>
+                </a>
+            </div>
+            <div class="grid_3">
+                <a target="_blank">
+                    <img src="image/22.jpg">
+                </a>
+                <button style="margin-top: 10px; margin-left:50px"> Детям</button>
+            </div>
+            <div class="grid_3">
+                <a href="
+" target="_blank">
+                    <img src="image/11.jpg">
+                </a>
+                <button style="margin-top: 10px; margin-left:50px"> Аксессуары</button>
+            </div>
+
+
+            <div class="clear"></div>
+        </div>
+
+
+        <div id="latest_home" class="grid_12">
+            <!-- <div class="grid_3">
+                <a href="http://themeforest.net/item/shoppica-premium-open-cart-theme/235470?ref=ThemeBurn" target="_blank">
+                  <img src="images/dummy/fas.jpg">
+                </a>
+              </div> -->
+            <div class="clear">
+
+            </div>
+            <div class="s_listing s_grid_view clearfix">
+
+
+                <div class="clear"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer" class="m1_">
+        <div id="footer_categories" class="clearfix">
+
+
+            <div class="clear"></div>
+            <div class="grid_12 border_eee"></div>
+        </div>
+
+        <p id="copy">&copy; Beauty Fassion </p>
+    </div>
+    <!-- end of FOOTER -->
+
+</div>
+
+
+</body>
+</html>

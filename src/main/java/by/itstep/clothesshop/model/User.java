@@ -2,47 +2,46 @@ package by.itstep.clothesshop.model;
 
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-
+@Builder
 @Entity
-@Table(name = "users")
+@Table(name = "user_u")
 public class User {
     @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private Integer id;
 
-    @Column(name = "user_name")
-    private String userName;
+    private String firstName;
+    private String lastName;
+    private String username;
 
-    @Column(name = "user_surname")
-    private String userSurname;
+    @Column(name = "phone_number")
+    private String phoneNumber;
+    private String address;
 
-    @Column(name = "user_age")
-    private Integer userAge;
+    private String password;
 
-    @Column(name = "user_phone")
-    private String userPhone;
-
-    @Column(name = "user_address")
-    private String userAddress;
-
-    @Column(name = "user_email")
-    private String userEmail;
-
-    @Column(name = "user_password")
-    private String userPassword;
-
-    @Enumerated (EnumType.STRING)
-    private Role role ;
-
-    @OneToMany
+    @OneToOne(mappedBy = "user")
+    private Basket basket;
+    @OneToMany(mappedBy = "user")
     private List<Order> orders;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id"))
+    private Collection<Role> roles;
+
+    public User(String username, String password, List<GrantedAuthority> grantedAuthorities) {
+    }
 }

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registration Success</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <title>Registration Success</title>
+
+    <meta name="description" content="My Store"/>
+    <style>
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+
+    <link rel="stylesheet" href="main1.css">
+    <link rel="stylesheet" href="main2.css">
+    <link rel="stylesheet" href="main3.css">
+
+
+</head>
+<body class="m_style">
+
+<div id="m_wrapper">
+    <div id="header" class="m1_container">
+        <div class="grid_12">
+            <a id="site_logo" href="index.html">Fasion</a>
+
+            <div id="system_navigation" class="s_nav">
+                <ul class="s_list_1 ">
+                    <li><a th:href="@{/}">Home</a></li>
+
+                </ul>
+            </div>
+
+
+            <div id="categories" class="s_nav">
+                <ul>
+
+                    <li><a href="">Women</a>
+                        <div class="s_submenu">
+
+                            <ul class="s_list_1 clearfix">
+                                <li><a th:href="@{/dresses}">Dresses</a></li>
+                                <li><a th:href="@{/skirts}">Skirts</a></li>
+
+                            </ul>
+                            <span class="clear border_eee"></span>
+
+                        </div>
+                    </li>
+                    <li><a href="listing_1.html">Men</a>
+                        <div class="s_submenu">
+
+                            <ul class="s_list_1 clearfix">
+                                <li><a href="listing_1.html">Costumes</a></li>
+                                <li><a href="listing_1.html">Shirts</a></li>
+                            </ul>
+
+
+                        </div>
+                    </li>
+                    <li><a href="listing_1.html">Kids</a>
+                        <div class="s_submenu">
+                            <ul class="s_list_1 clearfix">
+                                <li><a href="listing_1.html">Costumes</a></li>
+                                <li><a href="listing_1.html">Jackets</a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+                    <li><a href="listing_1.html">Accessories</a>
+                        <div class="s_submenu">
+                            <ul class="s_list_1 clearfix">
+                                <li><a href="listing_1.html">Glasses</a></li>
+                                <li><a href="listing_1.html">Bags</a></li>
+                            </ul>
+                        </div>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Password</th>
+            <th>Role</th>
+            <!--      <th>image</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user:${listUsers}">
+            <td th:text="${user.name}">Name</td>
+            <td th:text="${user.userPassword}">Password</td>
+            <td th:text="${user.getRoles()}">Role</td>
+
+            <!--      <td>-->
+            <!--        <a th:href="@{'/edit/' + ${product.id}}">Edit</a>-->
+            <!--        &nbsp;&nbsp;&nbsp;-->
+            <!--        <a th:href="@{'/delete/' + ${user.id}}">Delete</a>-->
+            <!--      </td>-->
+        </tr>
+        </tbody>
+    </table>
+    <div id="content" class="m1_">
+
+
+        <div id="footer" class="m1_">
+            <div id="footer_categories" class="clearfix">
+
+
+                <div class="clear"></div>
+                <div class="grid_12 border_eee"></div>
+            </div>
+
+            <p id="copy">&copy; Beauty Fassion </p>
+        </div>
+        <!-- end of FOOTER -->
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

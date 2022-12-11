@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Skirts</title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="second.css">
+
+
+
+
+
+</head>
+<body class="m_s_layout_fixed">
+
+<div id="m_wrapper">
+    <div id="m_header" class="m_container_12">
+        <div class="m_grid_12">
+            <a id="m_site_logo" th:href="@{/}">Fasion</a>
+
+            <div id="m_system_navigation" class="m_m_s_nav">
+                <ul class="m_s_list_1 m_clearfix ">
+                    <li><a  th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/login}">Log In</a></li>
+                    <li><a th:href="@{/basket}">Shopping Cart</a></li>
+                </ul>
+            </div>
+
+
+
+
+            <div id="m_categories" class="m_m_s_nav">
+                <p><span><a   th:href="@{/}">HOME</a></span><span>-</span><span>Women</span><span>-</span><span>Skirts</span></p>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <div id="m_content" class="m_container_12">
+
+
+        <div id="category" class="m_grid_9">
+
+
+
+            <div class="m_clear"></div>
+
+            <div class="m_s_listing m_s_list_view m_clearfix">
+                <div style="margin-bottom: 10px" class="m_s_item m_clearfix"  th:each="skirt:${product}">
+
+                    <form th:action="@{/add-to-cart}" method="post">
+                        <div class="m_grid_3 m_alpha"><a class="m_s_thumb" href="product.html"><img
+                                src="image/yubka.jpg"/></a></div>
+                    <div class="m_grid_6 m_omega">
+
+                        <h3 th:text="${skirt.getName()}"></h3>
+                        <p><span>Цена:</span><span class="s_old_price" th:text="${skirt.getPrice()}"></span>
+                            <span>USD</span></p>
+                        <p><span>Размер:</span><span th:text="${skirt.getSize()}"></span></p>
+                        <span>Описание:</span>
+                        <p class="m_s_description" th:text="${skirt.getDescription()}"></p>
+                        <form action="/addToCart" method="POST">
+                            <input type="hidden" name="id" th:value="${skirt.id}"/>
+                            <input type="number" min="1" value="1" name="quantity" placeholder="quantity"/>
+                            <button type="submit">В корзину</button>
+                        </form>
+                    </div>
+
+                    </form>
+                        <!--            <a class="m_s_button_add_to_cart" href="product.html"><span class="m_m_s_icon_16"><span class="m_s_icon"></span>Add to Cart</span></a>-->
+                    </div>
+
+
+                </div>
+
+                <div class="m_clear"></div>
+
+
+
+
+                <div class="clear"></div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+    <div id="shop_info">
+
+    </div>
+
+
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+
+    <title>Order</title>
+
+    <meta name="description" content="My Store"/>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main1.css">
+    <link rel="stylesheet" href="main2.css">
+    <link rel="stylesheet" href="main3.css">
+    <style>
+
+        .container {
+            width: 800px;
+        }
+    </style>
+
+
+</head>
+<body class="m_style">
+
+
+
+    <div class="container">
+        <br>
+        <h2 style="color: mediumvioletred">Ваш заказ успешно оформлен</h2><br>
+        <br>
+      <p> Номер заказа</p>  <h2 th:text="${orderDTO.getId()}"></h2><br>
+
+        <form action="#" method="get" th:action="@{/index}">
+            <button id="order" class="btn btn-info">Продолжить покупки</button>
+        </form>
+
+    </div>
+
+
+
+</head>
+<body>
+
+
+</body>
+</html>

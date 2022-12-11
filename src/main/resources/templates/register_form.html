@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <title>Registration</title>
+
+    <meta name="description" content="My Store"/>
+
+    <style>
+
+        .reg {
+            margin-left: 400px;
+            margin-top: 50px;
+        }
+
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+
+        input[type=text], input[type=password], select {
+            display: inline-block;
+            width: 200px;
+        }
+
+        input[type=radio] {
+            margin-left: 45px;
+        }
+
+        input[type=checkbox] {
+            margin-right: 190px;
+        }
+
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="main1.css">
+    <link rel="stylesheet" href="main2.css">
+    <link rel="stylesheet" href="main3.css">
+
+
+</head>
+<body class="m_style">
+
+<div id="m_wrapper">
+    <div id="header" class="m1_container">
+        <div class="grid_12">
+            <a id="site_logo" href="index.html">Fasion</a>
+
+            <div id="system_navigation" class="s_nav">
+                <ul class="s_list_1 ">
+                    <li><a th:href="@{/}">Home</a></li>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="reg">
+        <h1 style="color: mediumvioletred"> Регистрация пользователя </h1>
+        <div th:if="${error}">
+            <p th:text="${error}"></p>
+        </div>
+        <div th:if="${username}">
+            <p th:text="${username}"></p>
+        </div>
+        <div th:if="${password}">
+            <p th:text="${password}"></p>
+        </div>
+        <div th:if="${success}">
+            <p th:text="${success}"></p>
+        </div>
+        <form th:action="@{/registration}" method="post" th:object="${userDTO}">
+
+            <label>First name:</label>
+            <input type="text" th:field="*{firstName}" placeholder="First Name" name="">
+
+            <label>Last name:</label>
+            <input type="text" th:field="*{lastName}" placeholder="Last Name" name="">
+
+            <label>Username:</label>
+            <input type="text" th:field="*{username}" placeholder="Username" name="">
+            <label>Password:</label>
+            <!-- <span>Password</span> -->
+            <input type="password" th:field="*{password}" placeholder="Password" name="">
+            <label>Repeat password:</label>
+            <input type="password" th:field="*{repeatPassword}" placeholder="Repeat password" name="">
+
+            <!--      <label>Email:</label>-->
+            <!--      <input type="email" th:field = "*{email}" placeholder="Email" name="">-->
+            <div class="input-form">
+                <input type="submit" value="Зарегистрировать">
+            </div>
+
+            <div class="input-form">
+                <p>Do You Already Have An Account? <a th:href="@{/login}"> Вход </a></p>
+            </div>
+
+        </form>
+    </div>
+    <div id="content" class="m1_">
+
+
+        <div id="footer" class="m1_">
+            <div id="footer_categories" class="clearfix">
+
+
+                <div class="clear"></div>
+                <div class="grid_12 border_eee"></div>
+            </div>
+
+            <p id="copy">&copy; Beauty Fassion </p>
+        </div>
+        <!-- end of FOOTER -->
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
+
+//
+
+<!--<form action="/registration" method="post">-->
+<!--  Имя пользователя: <input type="text" name="username"><br><br>-->
+<!--  Эл. почта: <input type="email" name="userEmail"><br><br>-->
+<!--  Номер телефона: <input type="text" name="userPhone"><br><br>-->
+<!--  Пароль: <input type="password" name="userPassword"><br><br>-->
+<!--  <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<!--  <input type="submit" value="Зарегистрироваться"/>-->
+<!--</form>-->

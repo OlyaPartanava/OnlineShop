@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+
+    <title>Basket</title>
+
+    <meta name="description" content="My Store"/>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main1.css">
+    <link rel="stylesheet" href="main2.css">
+    <link rel="stylesheet" href="main3.css">
+    <style>
+
+        .container {
+            width: 800px;
+        }
+    </style>
+
+
+</head>
+<body class="m_style">
+
+<div id="m_wrapper">
+    <div id="header" class="m1_container">
+        <div class="grid_12">
+            <a id="site_logo">Fasion</a>
+
+            <div id="system_navigation" class="s_nav">
+                <ul class="s_list_1 ">
+                    <li><a style="color: darkmagenta" th:href="@{/}">Вернуться к покупкам</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 style="color:mediumvioletred">Корзина</h2>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                    <th>Сумма</th>
+
+                </tr>
+                </thead>
+
+                <tr th:each="listCartItems:${listCartItems}">
+                    <td th:text="${listCartItems.product.getName()}">Name</td>
+                    <td th:text="${listCartItems.product.getPrice()}">Price</td>
+                    <td th:text="${listCartItems.getQuantity()}">Quantity()</td>
+                    <td th:text="${listCartItems.product.getPrice()}*${listCartItems.getQuantity()}">Сумма</td>
+                    <form th:action="@{/update-cart}" method="post">
+                        <input type="hidden" name="id" th:value="${listCartItems.product.id}">
+                        <td class="quantity-box"><input type="number" size="4" th:value="${listCartItems.getQuantity()}"
+                                                        name="quantity" min="0" step="1"
+                                                        class="c-input-text qty text"></td>
+
+                        <td class="remove-pr">
+                            <button type="submit" name="action" value="update" title="Update"
+                                    class="btn btn-primary">Update
+                            </button>
+
+                            <button type="submit" name="action" value="delete" title="Delete"
+                                    class="btn btn-warning">Delete
+                            </button>
+                        </td>
+                    </form>
+
+
+                </tr>
+
+            </table>
+        </div>
+
+
+<!--        <br>-->
+<!--        <button style="margin-bottom: 10px" type="submit" name="action" value="delete" title="Delete"-->
+<!--                class="btn btn-warning">Delete-->
+<!--        </button>-->
+        <form  method="get" th:action="@{/orders/create_order/{basketId}(basketId=${shoppingCart.getId()})}">
+            <button id="order" class="btn btn-info">Оформить заказ</button>
+        </form>
+
+    </div>
+    <div id="content" class="m1_">
+
+
+        <div id="footer" class="m1_">
+            <div id="footer_categories" class="clearfix">
+
+
+                <div class="clear"></div>
+                <div class="grid_12 border_eee"></div>
+            </div>
+
+            <p id="copy">&copy; Beauty Fassion </p>
+        </div>
+        <!-- end of FOOTER -->
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+
+
+</head>
+<body>
+
+
+</body>
+</html>

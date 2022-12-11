@@ -1,11 +1,15 @@
-body {
-
-    background: url("image/img.jpg") no-repeat ;
+.img {
+width: 60%;
+    height: 500px;
+    background: url("image/girls.jpg") no-repeat  ;
+    text-align: center;
     background-size: 100%;
+    margin-left: 260px;
 }
+
 .style_main {
-    margin-top: 150px;
-    height: 10em;
+    margin-top:70px;
+    height: 5em;
     position: relative
 
 }
@@ -16,12 +20,39 @@ body {
     margin: 0 -50% 0 0;
     transform: translate(-50%, -50%)
 }
-
+hr {
+    border: none;
+    background-color:#757575;
+    color: #757575;
+    height: 1px;
+}
 * { box-sizing: border-box; }
 body {
     margin: 0;
 
 }
+
+header {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    color: black;
+    background: thistle;
+}
+.text {
+
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+    color: darkmagenta;
+
+}
+
 
 
 nav {
@@ -50,6 +81,7 @@ nav ul {
     font-weight: bold;
     color: #404040;
     padding: 15px 30px;
+    text-decoration: none;
 }
 .topmenu li a:hover { color: deeppink;
    }
